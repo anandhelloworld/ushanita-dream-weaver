@@ -52,6 +52,16 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				ngo: {
+					orange: 'hsl(var(--ngo-orange))',
+					blue: 'hsl(var(--ngo-blue))',
+					green: 'hsl(var(--ngo-green))',
+					red: 'hsl(var(--ngo-red))',
+					yellow: 'hsl(var(--ngo-yellow))',
+					purple: 'hsl(var(--ngo-purple))',
+					warm: 'hsl(var(--ngo-warm))',
+					compassion: 'hsl(var(--ngo-compassion))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
