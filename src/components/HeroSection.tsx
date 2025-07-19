@@ -2,28 +2,11 @@ import heroBanner from '@/assets/hero-banner.jpg';
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative min-h-screen bg-gradient-to-br from-background to-secondary">
-      <div className="container mx-auto px-4 py-12">
-        {/* Logo and Tagline */}
-        <div className="text-center mb-8">
-          <div className="flex justify-center mb-4">
-            <img 
-              src="/lovable-uploads/1958cbfd-8690-4d3d-80db-ddcd171dded1.png" 
-              alt="Ushanita Foundation Logo" 
-              className="h-32 w-auto"
-            />
-          </div>
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Light of Love and compassion
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground italic">
-            A dream to make dreams true
-          </p>
-        </div>
-
-        {/* Hero Banner Image */}
+    <section id="home" className="relative bg-gradient-to-br from-background to-secondary pt-8 pb-16">
+      <div className="container mx-auto px-4">
+        {/* Hero Banner Image - prominent display */}
         <div className="flex justify-center mb-8">
-          <div className="relative max-w-4xl w-full">
+          <div className="relative max-w-5xl w-full">
             <img 
               src={heroBanner}
               alt="Ushanita Foundation - Serving humanity through various programs"
