@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { Heart, Shield, GraduationCap, UtensilsCrossed, CreditCard, Smartphone, Building } from 'lucide-react';
+import DonationModal from './DonationModal';
 
 const DonateSection = () => {
+  const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
   const donationMethods = [
     {
       icon: CreditCard,
@@ -110,7 +113,10 @@ const DonateSection = () => {
             Join thousands of supporters who are helping us create positive change in our communities.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-primary hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors">
+            <button 
+              onClick={() => setIsDonationModalOpen(true)}
+              className="bg-white text-primary hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors"
+            >
               Donate Now
             </button>
             <button 
@@ -121,6 +127,11 @@ const DonateSection = () => {
             </button>
           </div>
         </div>
+
+        <DonationModal 
+          isOpen={isDonationModalOpen} 
+          onClose={() => setIsDonationModalOpen(false)} 
+        />
       </div>
     </section>
   );
