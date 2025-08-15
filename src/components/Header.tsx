@@ -14,38 +14,36 @@ const Header = () => {
 
   return (
     <header className="bg-background/95 backdrop-blur-sm border-b sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4">
-        {/* Logo and Tagline Row */}
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
-          {/* Logo and Tagline */}
-          <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-8">
-            <div className="flex items-center space-x-3 mb-4 lg:mb-0">
-              <img 
-                src="/lovable-uploads/1958cbfd-8690-4d3d-80db-ddcd171dded1.png" 
-                alt="Ushanita Foundation Logo" 
-                className="h-32 w-auto bg-white p-3 rounded-lg shadow-md border-2 border-ngo-purple"
-              />
-            </div>
-            
-            {/* Tagline with colored text */}
-            <div className="text-center lg:text-left">
-              <h1 className="text-xl md:text-2xl font-bold mb-2">
-                <span className="text-ngo-red">Light of </span>
-                <span className="text-ngo-green">Love </span>
-                <span className="text-ngo-blue">and compassion</span>
-              </h1>
-              <p className="text-base md:text-lg text-ngo-blue italic font-medium">
-                A dream to make dreams come true
-              </p>
-            </div>
+      <div className="container mx-auto px-4 py-8">
+        {/* Logo and Tagline Row - Centered Layout */}
+        <div className="flex flex-col items-center justify-center mb-8">
+          {/* Logo - Centered and Larger */}
+          <div className="flex justify-center mb-6">
+            <img 
+              src="/lovable-uploads/1958cbfd-8690-4d3d-80db-ddcd171dded1.png" 
+              alt="Ushanita Foundation Logo" 
+              className="h-32 md:h-40 w-auto bg-white p-4 rounded-lg shadow-lg border-3 border-ngo-purple"
+            />
+          </div>
+          
+          {/* Tagline with colored text - Centered */}
+          <div className="text-center">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
+              <span className="text-ngo-red">Light of </span>
+              <span className="text-ngo-green">Love </span>
+              <span className="text-ngo-blue">and compassion</span>
+            </h1>
+            <p className="text-lg md:text-xl lg:text-2xl text-ngo-blue italic font-medium">
+              A dream to make dreams come true
+            </p>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2"
+            className="lg:hidden absolute top-4 right-4 p-2 bg-white/10 rounded-md"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
