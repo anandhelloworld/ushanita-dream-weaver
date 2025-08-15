@@ -1,32 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { removeBackground, loadImage } from '@/utils/backgroundRemoval';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [processedLogoUrl, setProcessedLogoUrl] = useState<string>('');
-
-  useEffect(() => {
-    const processLogo = async () => {
-      try {
-        // Load the original logo
-        const response = await fetch('/lovable-uploads/1958cbfd-8690-4d3d-80db-ddcd171dded1.png');
-        const blob = await response.blob();
-        const imageElement = await loadImage(blob);
-        
-        // Remove background
-        const processedBlob = await removeBackground(imageElement);
-        const url = URL.createObjectURL(processedBlob);
-        setProcessedLogoUrl(url);
-      } catch (error) {
-        console.error('Failed to process logo:', error);
-        // Fallback to original image
-        setProcessedLogoUrl('/lovable-uploads/1958cbfd-8690-4d3d-80db-ddcd171dded1.png');
-      }
-    };
-
-    processLogo();
-  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -38,40 +14,38 @@ const Header = () => {
 
   return (
     <header className="bg-background/95 backdrop-blur-sm border-b sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-8">
-        {/* Logo and Tagline Row - Logo centered with text on both sides */}
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between items-center mb-8 gap-8">
-          {/* Left side text - "Light of Love and compassion" in 2 lines */}
-          <div className="text-center lg:text-right flex-1 order-2 lg:order-1">
-            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold leading-tight">
-              <div className="text-ngo-red">Light of Love</div>
-              <div className="text-ngo-blue">and compassion</div>
-            </h1>
-          </div>
-          
-          {/* Logo - Center */}
-          <div className="flex justify-center order-1 lg:order-2">
-            <img 
-              src={processedLogoUrl || '/lovable-uploads/1958cbfd-8690-4d3d-80db-ddcd171dded1.png'}
-              alt="Ushanita Foundation Logo" 
-              className="h-24 md:h-32 lg:h-40 w-auto p-2 rounded-lg"
-            />
-          </div>
-          
-          {/* Right side text - "A dream to make dreams come true" in 2 lines */}
-          <div className="text-center lg:text-left flex-1 order-3">
-            <p className="text-lg md:text-xl lg:text-2xl text-ngo-green italic font-medium leading-tight">
-              <div>A dream to make</div>
-              <div>dreams come true</div>
-            </p>
+      <div className="container mx-auto px-4 py-4">
+        {/* Logo and Tagline Row */}
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
+          {/* Logo and Tagline */}
+          <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-8">
+            <div className="flex items-center space-x-3 mb-4 lg:mb-0">
+              <img 
+                src="/lovable-uploads/1958cbfd-8690-4d3d-80db-ddcd171dded1.png" 
+                alt="Ushanita Foundation Logo" 
+                className="h-32 w-auto bg-white p-3 rounded-lg shadow-md border-2 border-ngo-purple"
+              />
+            </div>
+            
+            {/* Tagline with colored text */}
+            <div className="text-center lg:text-left">
+              <h1 className="text-xl md:text-2xl font-bold mb-2">
+                <span className="text-ngo-red">Light of </span>
+                <span className="text-ngo-green">Love </span>
+                <span className="text-ngo-blue">and compassion</span>
+              </h1>
+              <p className="text-base md:text-lg text-ngo-blue italic font-medium">
+                A dream to make dreams come true
+              </p>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden absolute top-4 right-4 p-2 bg-white/10 rounded-md"
+            className="lg:hidden p-2"
           >
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
