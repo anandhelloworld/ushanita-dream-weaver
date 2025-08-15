@@ -1,8 +1,32 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { removeBackground, loadImage } from '@/utils/backgroundRemoval';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [processedLogoUrl, setProcessedLogoUrl] = useState<string>('');
+
+  useEffect(() => {
+    const processLogo = async () => {
+      try {
+        // Load the original logo
+        const response = await fetch('/lovable-uploads/1958cbfd-8690-4d3d-80db-ddcd171dded1.png');
+        const blob = await response.blob();
+        const imageElement = await loadImage(blob);
+        
+        // Remove background
+        const processedBlob = await removeBackground(imageElement);
+        const url = URL.createObjectURL(processedBlob);
+        setProcessedLogoUrl(url);
+      } catch (error) {
+        console.error('Failed to process logo:', error);
+        // Fallback to original image
+        setProcessedLogoUrl('/lovable-uploads/1958cbfd-8690-4d3d-80db-ddcd171dded1.png');
+      }
+    };
+
+    processLogo();
+  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -28,9 +52,9 @@ const Header = () => {
           {/* Logo - Center */}
           <div className="flex justify-center order-1 lg:order-2">
             <img 
-              src="/lovable-uploads/1958cbfd-8690-4d3d-80db-ddcd171dded1.png" 
+              src={processedLogoUrl || '/lovable-uploads/1958cbfd-8690-4d3d-80db-ddcd171dded1.png'}
               alt="Ushanita Foundation Logo" 
-              className="h-40 md:h-48 lg:h-56 w-auto bg-white p-6 rounded-lg shadow-lg"
+              className="h-24 md:h-32 lg:h-40 w-auto p-2 rounded-lg"
             />
           </div>
           
