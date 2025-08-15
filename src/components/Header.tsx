@@ -30,7 +30,7 @@ const Header = () => {
             <img 
               src="/lovable-uploads/1958cbfd-8690-4d3d-80db-ddcd171dded1.png" 
               alt="Ushanita Foundation Logo" 
-              className="h-40 md:h-48 lg:h-56 w-auto bg-white p-6 rounded-lg shadow-lg border-4 border-ngo-purple"
+              className="h-40 md:h-48 lg:h-56 w-auto bg-white p-6 rounded-lg shadow-lg"
             />
           </div>
           
