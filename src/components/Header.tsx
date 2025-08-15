@@ -15,30 +15,30 @@ const Header = () => {
   return (
     <header className="bg-background/95 backdrop-blur-sm border-b sticky top-0 z-50">
       <div className="container mx-auto px-4 py-8">
-        {/* Logo and Tagline Row - Centered Layout */}
-        <div className="flex flex-col items-center justify-center mb-8">
-          {/* Logo - Much Larger for Text Visibility */}
-          <div className="flex justify-center mb-6">
+        {/* Logo and Tagline Row - Logo centered with text on both sides */}
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between items-center mb-8 gap-8">
+          {/* Left side text - "Light of Love and compassion" in 2 lines */}
+          <div className="text-center lg:text-right flex-1 order-2 lg:order-1">
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold leading-tight">
+              <div className="text-ngo-red">Light of Love</div>
+              <div className="text-ngo-blue">and compassion</div>
+            </h1>
+          </div>
+          
+          {/* Logo - Center */}
+          <div className="flex justify-center order-1 lg:order-2">
             <img 
               src="/lovable-uploads/1958cbfd-8690-4d3d-80db-ddcd171dded1.png" 
               alt="Ushanita Foundation Logo" 
-              className="h-48 md:h-56 lg:h-64 w-auto bg-white p-6 rounded-lg shadow-lg border-4 border-ngo-purple"
+              className="h-40 md:h-48 lg:h-56 w-auto bg-white p-6 rounded-lg shadow-lg border-4 border-ngo-purple"
             />
           </div>
           
-          {/* Tagline with colored text - Two lines side by side */}
-          <div className="text-center max-w-4xl">
-            <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">
-                <span className="text-ngo-red">Light of </span>
-                <span className="text-ngo-green">Love</span>
-              </h1>
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">
-                <span className="text-ngo-blue">and compassion</span>
-              </h1>
-            </div>
-            <p className="text-lg md:text-xl lg:text-2xl text-ngo-blue italic font-medium mt-4">
-              A dream to make dreams come true
+          {/* Right side text - "A dream to make dreams come true" in 2 lines */}
+          <div className="text-center lg:text-left flex-1 order-3">
+            <p className="text-lg md:text-xl lg:text-2xl text-ngo-green italic font-medium leading-tight">
+              <div>A dream to make</div>
+              <div>dreams come true</div>
             </p>
           </div>
 
